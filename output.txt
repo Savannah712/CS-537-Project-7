@@ -1,0 +1,157 @@
+
+[34mTEST 0: Check the superblock and root directory entry of initialized filesystem (after executing mkfs). See mkfs_check.c for how this is tested. [0m
+
+
+TEST 0 [32mPASS[0m
+
+
+[34mTEST 1: Check the superblock and root directory entry of initialized filesystem (after executing mkfs) with different arguments. See mkfs_check.c for how this is tested. [0m
+
+
+TEST 1 [32mPASS[0m
+
+
+[34mTEST 2: Read test for prebuilt image[0m
+
+TEST 2 [31mFAIL[0m with exit code 255
+Ouput: Unable to open file: mnt/file0
+
+Error: open: Input/output error
+
+
+[34mTEST 3: Creating file in root[0m
+
+TEST 3 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/file0
+
+Error: open: Input/output error
+
+
+[34mTEST 4: Creating directory inside root and then creating a directory inside a directory.[0m
+
+TEST 4 [31mFAIL[0m with exit code 255
+Ouput: Unable to create directory: mnt/data2
+
+Error: mkdir: Input/output error
+
+
+[34mTEST 5: Creating file inside non-root directory.[0m
+
+TEST 5 [31mFAIL[0m with exit code 255
+Ouput: Unable to create directory: mnt/data4
+
+Error: mkdir: Input/output error
+
+
+[34mTEST 6: Testing special directory "."[0m
+
+TEST 6 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/./data8.txt
+
+Error: open: Input/output error
+
+
+[34mTEST 7: Testing special directory ".."[0m
+
+TEST 7 [31mFAIL[0m with exit code 255
+Ouput: Unable to create directory: mnt/data5
+
+Error: mkdir: Input/output error
+
+
+[34mTEST 8: Deleting file from root directory.[0m
+
+TEST 8 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/file0
+
+Error: open: Input/output error
+
+
+[34mTEST 9: Deleting file from non-root directory.[0m
+
+TEST 9 [31mFAIL[0m with exit code 255
+Ouput: Unable to create directory: mnt/data4
+
+Error: mkdir: Input/output error
+
+
+[34mTEST 10: Write test.[0m
+
+TEST 10 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/data11.txt
+
+Error: open: Input/output error
+
+
+[34mTEST 11: Read/write test for large files (indirect blocks)[0m
+
+TEST 11 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/large.txt
+
+Error: open: Input/output error
+
+
+[34mTEST 12: Read test. Read BLOCK_SIZE data, spanning block boundary.[0m
+
+TEST 12 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/file.txt
+
+Error: open: Input/output error
+
+
+[34mTEST 13: Read/write test. Overwrite data blocks with offset not on block boundary. Ensure no additional data block allocation and read is correct.[0m
+
+TEST 13 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/file.txt
+
+Error: open: Input/output error
+
+
+[34mTEST 14: Read/write test. Write more than D_BLOCKS of data to two files alternatively, ensure read is correct. [0m
+
+TEST 14 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/large1.txt
+
+Error: open: Input/output error
+
+
+[34mTEST 15: Large directory test. Add 64 files to directory, verify with readdir.[0m
+
+TEST 15 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/file0
+
+Error: open: Input/output error
+
+
+[34mTEST 16: ENOSPACE error checking. Create more than the maximum number of inodes.[0m
+
+TEST 16 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/file0
+
+Error: open: Input/output error
+
+
+[34mTEST 17: ENOSPACE error checking. Create more than the maximum number of data blocks. [0m
+
+TEST 17 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/large.txt
+
+Error: open: Input/output error
+
+
+[34mTEST 18: Large disk test. Using a larger disk, create many files and directories with data. [0m
+
+TEST 18 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/file0
+
+Error: open: Input/output error
+
+
+[34mTEST 19: Rmdir test. Create a directory with several blocks worth of dentries. Unlink the files in the directory, rmdir, verify all data blocks associated with the directory have been freed.[0m
+
+TEST 19 [31mFAIL[0m with exit code 255
+Ouput: Unable to create file: mnt/dummy
+
+Error: open: Input/output error
+
+2 / 20 tests passed
